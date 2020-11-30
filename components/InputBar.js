@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
           width: 0,
           height: -5,
         },
-        shadowOpacity: .25,
+        shadowOpacity: .15,
         shadowRadius: 5,
       },
       inputField: {
