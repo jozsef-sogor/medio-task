@@ -1,10 +1,30 @@
-import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import React, {useRef} from 'react';
+import { StyleSheet, Text, Animated } from 'react-native';
 
 export default function DisplayText(props) {
+    const pulseAnim = useRef(new Animated.Value(1)).current;
+
+    const pulse= () => {
+      Animated.sequence([
+          // Will change pulseAnim value to 1.5 in .5 seconds
+          Animated.timing(pulseAnim, {
+            toValue: 1.25,
+            duration: 125,
+            useNativeDriver: true
+          }),
+          Animated.timing(pulseAnim, {
+            toValue: 1,
+            duration: 125,
+            useNativeDriver: true
+          }),
+      ]).start(({finished}) => console.log(finished));
+    };
+
     return(
         <Text style={styles.title}>{`Üdv,\n`}
-          <Text style={styles.name}>{props.displayName}</Text>
+            <Animated.View style={{transform: [{scale: pulseAnim}]}}>
+                <Text onChange={pulse()} style={styles.name}>{props.displayName}</Text>
+            </Animated.View>
         {`\n!`}
         </Text>
     )
