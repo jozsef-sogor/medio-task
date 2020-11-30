@@ -20,9 +20,10 @@ const style = StyleSheet.create({
     home: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         //backgroundColor: 'coral',
         width: '100%',
         height: '100%',
+        paddingTop: 40,
     },
 })
