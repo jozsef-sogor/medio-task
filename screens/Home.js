@@ -10,9 +10,12 @@ export default function Home() {
     };
 
     return (
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={style.home}>
-                <Image source={require('../assets/medio-logo.png')}/>
+        <TouchableWithoutFeedback 
+        onPress={Keyboard.dismiss} 
+        disabled={window.navigator.product == 'ReactNative' ? false : true} //Böngészőbn deaktiválva van (kifókuszált a beviteli mezőből)
+        >
+            <View style={styles.home}>
+                <Image source={require('../assets/medio-logo.png')} style={styles.image}/>
                 <DisplayText displayName={displayName}></DisplayText>
                 <InputBar submitName={handleSubmit}></InputBar>
             </View>
@@ -20,7 +23,7 @@ export default function Home() {
     );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     home: {
         flex: 1,
         alignItems: 'center',
@@ -30,4 +33,8 @@ const style = StyleSheet.create({
         height: '100%',
         paddingTop: 40,
     },
+    image: {
+        width: 202,
+        height: 68,
+    }
 })

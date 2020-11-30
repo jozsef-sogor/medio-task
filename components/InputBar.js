@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { TextInput, StyleSheet, KeyboardAvoidingView, Button, Keyboard } from 'react-native';
+import { TextInput, StyleSheet, KeyboardAvoidingView, Button, Keyboard, Platform } from 'react-native';
 
 export default function InputBar(props) {
     const [name, setName] = useState('');
@@ -17,6 +17,7 @@ export default function InputBar(props) {
                 placeholder='Név'
                 value={name}
                 onChangeText={(inputVal) => setName(inputVal)}
+                onSubmitEditing={()=>handleSubmit()} //Enter lenyomással is elküldhető a név
             />
             <Button 
                 title='Küldés'
@@ -46,8 +47,8 @@ const styles = StyleSheet.create({
           width: 0,
           height: -5,
         },
-        shadowOpacity: .8,
-        shadowRadius: 15,
+        shadowOpacity: .25,
+        shadowRadius: 5,
       },
       inputField: {
         padding: 10,

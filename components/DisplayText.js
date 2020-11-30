@@ -6,7 +6,6 @@ export default function DisplayText(props) {
 
     const pulse= () => {
       Animated.sequence([
-          // Will change pulseAnim value to 1.5 in .5 seconds
           Animated.timing(pulseAnim, {
             toValue: 1.25,
             duration: 125,
@@ -23,7 +22,9 @@ export default function DisplayText(props) {
     return(
         <Text style={styles.title}>{`Üdv,\n`}
             <Animated.View style={{transform: [{scale: pulseAnim}]}}>
-                <Text onChange={pulse()} style={styles.name}>{props.displayName}</Text>
+                <Text onChange={pulse()} style={styles.name}>
+                    {props.displayName}
+                </Text>
             </Animated.View>
         {`\n!`}
         </Text>
