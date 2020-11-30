@@ -17,7 +17,7 @@ export default function DisplayText(props) {
             duration: 125,
             useNativeDriver: true
           }),
-      ]).start(({finished}) => console.log(finished));
+      ]).start();
     };
 
     return(

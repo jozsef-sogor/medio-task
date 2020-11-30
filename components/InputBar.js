@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { TextInput, StyleSheet, KeyboardAvoidingView, Button } from 'react-native';
+import { TextInput, StyleSheet, KeyboardAvoidingView, Button, Keyboard } from 'react-native';
 
 export default function InputBar(props) {
     const [name, setName] = useState('');
     const handleSubmit= () => {
+        Keyboard.dismiss(); //Billentyűzet bezárása, miután a név el lett "küldve"
         props.submitName(name);
         setName(''); //Bevitei mező kiürítése a név elküldése után
     };

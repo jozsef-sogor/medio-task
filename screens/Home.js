@@ -7,7 +7,6 @@ export default function Home() {
     const [displayName, setDisplayName] = useState('');
     const handleSubmit = (name) => {
         setDisplayName(name);
-        Keyboard.dismiss(); //Billentyűzet bezárása, miután a név el lett "küldve"
     };
 
     return (
